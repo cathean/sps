@@ -8,9 +8,9 @@ set(sps MAJOR 1)
 set(sps MINOR 0)
 
 #Ask for Boost header path
-set(BOOST_INCLUDE "default_value" CACHE PATH "Boost header path")
+set(BOOST_INCLUDE "default_value" CACHE PATH "Boost include path")
 #Ask for Boost linker file path for 'system'
-set(BOOST_LIB "default_value" CACHE FILEPATH "Boost linker file xxxx")
+set(BOOST_LIB "default_value" CACHE FILEPATH "boost_system linker")
 
 #Include directories
 include_directories(include)
