@@ -16,7 +16,7 @@ set(BOOST_LIB "default_value" CACHE FILEPATH "boost_system linker")
 include_directories(include)
 include_directories(${BOOST_INCLUDE})
 
-add_executable(sps src/main.cpp)
+add_executable(sps src/main.cpp src/func_def.cpp)
 
 #Linking the main program
 target_link_libraries(sps
