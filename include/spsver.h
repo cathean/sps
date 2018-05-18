@@ -1,1 +1,2 @@
-
+#define sps_VERSION_MAJOR @sps_VERSION_MAJOR
+#define sps_VERSION_MINOR @sps_VERSION_MINOR

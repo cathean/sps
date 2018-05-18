@@ -4,8 +4,8 @@ cmake_minimum_required(VERSION 3.11)
 project(sps)
 
 #Version number of the program
-set(sps MAJOR 1)
-set(sps MINOR 0)
+set(sps_VERSION_MAJOR 1)
+set(sps_VERSION_MINOR 0)
 
 #Ask for Boost header path
 set(BOOST_INCLUDE "default_value" CACHE PATH "Boost include path")
