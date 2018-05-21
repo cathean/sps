@@ -1,5 +1,5 @@
 #Minimum version of cmake to build this source code
-cmake_minimum_required(VERSION 3.11)
+cmake_minimum_required(VERSION 3.10)
 
 project(sps)
 
@@ -7,19 +7,25 @@ project(sps)
 set(sps_VERSION_MAJOR 1)
 set(sps_VERSION_MINOR 0)
 
-#Ask for Boost header path
-set(BOOST_INCLUDE "default_value" CACHE PATH "Boost include path")
-#Ask for Boost linker file path for 'system'
-set(BOOST_LIB "default_value" CACHE FILEPATH "boost_system linker")
+#Find boost package(version 1.67.0)
+#The script from FindBoost
+set(Boost_USE_STATIC_LIBS	ON)
+set(Boost_USE_MULTITHREAD	ON)
+set(Boost_USE_STATIC_RUNTIME	OFF)
+find_package(Boost 1.67.0 COMPONENTS filesystem system thread)
 
-#Include directories
-include_directories(include)
-include_directories(${BOOST_INCLUDE})
+if(Boost_FOUND)
+	#Include directories
+	include_directories(include)
+	include_directories(${Boost_INCLUDE_DIRS})
 
-add_executable(sps src/main.cpp src/func_def.cpp)
+	#add exec
+	add_executable(sps src/main.cpp src/func_def.cpp)
 
-#Linking the main program
-target_link_libraries(sps
-	-lws2_32
-	${BOOST_LIB}
-)
+	#Linking the main program
+	target_link_libraries
+	(
+		sps
+		${Boost_LIBRARIES}
+	)
+endif()
