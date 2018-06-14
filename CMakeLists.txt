@@ -12,7 +12,7 @@ set(sps_VERSION_MINOR 0)
 set(Boost_USE_STATIC_LIBS	ON)
 set(Boost_USE_MULTITHREAD	ON)
 set(Boost_USE_STATIC_RUNTIME	OFF)
-find_package(Boost 1.67.0 COMPONENTS filesystem system thread)
+find_package(Boost 1.67.0 COMPONENTS filesystem system thread REQUIRED)
 
 if(Boost_FOUND)
 	#Include directories
@@ -23,5 +23,5 @@ if(Boost_FOUND)
 	add_executable(sps src/main.cpp src/func_def.cpp)
 
 	#Linking the main program
-	target_link_libraries(sps ${Boost_LIBRARIES})
+	target_link_libraries(sps ${Boost_LIBRARIES} -lpthread)
 endif()
