@@ -23,9 +23,5 @@ if(Boost_FOUND)
 	add_executable(sps src/main.cpp src/func_def.cpp)
 
 	#Linking the main program
-	target_link_libraries
-	(
-		sps
-		${Boost_LIBRARIES}
-	)
+	target_link_libraries(sps ${Boost_LIBRARIES})
 endif()
